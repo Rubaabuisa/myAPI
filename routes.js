@@ -5,7 +5,7 @@ const { body } = require("express-validator/check");
 
 router.get("/posts", data.getPosts);
 router.get("/post/:id", data.getPostbyID);
-router.get("/post/tag/:tag", data.getPostbyTag);
+
 router.post(
   "/add",
   [

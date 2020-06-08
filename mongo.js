@@ -90,19 +90,6 @@ exports.getPostbyID = async (req, res) => {
     console.log("dbo", db);
   }
 };
-exports.getPostbyTag = async (req, res) => {
-  const tag = req.params.tag;
-  const client = await conn.conn();
-  const db = client.db('api')
-  try {
-    let result = await db.collection("posts").find({ tags: tag }).toArray();
-    res.status(200).json({
-      post: result,
-    });
-  } catch (error) {
-    console.log("error getting data", error);
-  }
-};
 
 exports.updatePost = async (req, res) => {
   const errors = validationResult(req);
